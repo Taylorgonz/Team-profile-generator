@@ -4,19 +4,19 @@ const fs = require('fs');
 
 const templateDIR = path.resolve(__dirname, "src");
 
-const renderHTML = team => {
+const renderHTML = employees => {
     const html = [];
 
-    html.push(team
-        .filter(team => team.getRole() === "Manager")
+    html.push(employees
+        .filter(employee => employee.getRole() === "Manager")
         .map(manager => renderManager(manager))
     );
-    html.push(team
-        .filter(team => team.getRole() === "Engineer")
+    html.push(employees
+        .filter(employee => employee.getRole() === "Engineer")
         .map(engineer => renderEngineer(engineer))
     );
-    html.push(team
-        .filter(team => team.getRole() === "Intern")
+    html.push(employees
+        .filter(employee => employee.getRole() === "Intern")
         .map(intern => renderIntern(intern))
     );
 
@@ -57,7 +57,7 @@ const renderIndex = html => {
     return replacePlaceholders(template, "team", html)
 }
 const replacePlaceholders = (template, placeholder, value) => {
-    const pattern = new RegExp("{{" + placeholder + "}}", "gm");
+    const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
     return template.replace(pattern, value);
 };
 

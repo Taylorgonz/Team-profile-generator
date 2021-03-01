@@ -125,7 +125,10 @@ function getInfo() {
                 } else if (answers.add === "Intern") {
                     getIntern();
                 } else {
-                   renderTeam();
+                    fs.writeFile(outputPath, renderHTML(team), (err) => {
+                        if (err) throw err;
+                        else console.log('Created the page!')
+                    })
             
                 }
             })
@@ -135,8 +138,5 @@ function getInfo() {
     getManager();
 }
 
-function renderTeam() {
-    fs.writeFileSync(outputPath, renderHTML(team), "utf-8")
-}
 
 getInfo();
