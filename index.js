@@ -4,6 +4,7 @@ const path = require('path');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
+
 const OUTPUT_DIR = path.resolve(__dirname,"dist");
 const outputPath = path.join(OUTPUT_DIR, "index.html");
 const renderHTML = require('./pageGenerator');
@@ -124,10 +125,8 @@ function getInfo() {
                 } else if (answers.add === "Intern") {
                     getIntern();
                 } else {
-                   fs.writeFile(outputPath, renderHTML(team), (err) => {
-                       if (err) throw err;
-                       else console.log('Succesfully created team page!')
-                   })
+                   renderTeam();
+            
                 }
             })
     };
@@ -136,5 +135,8 @@ function getInfo() {
     getManager();
 }
 
+function renderTeam() {
+    fs.writeFileSync(outputPath, renderHTML(team), "utf-8")
+}
 
 getInfo();
