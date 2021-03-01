@@ -24,7 +24,7 @@ const renderHTML = team => {
 }
 
 const renderManager = manager => {
-    let template = fs.writeFileSync(path.resolve(templateDIR, "manager.html"), "utf8");
+    let template = fs.readFileSync(path.resolve(templateDIR, "manager.html"), "utf8");
     template = replacePlaceholders(template, "name", manager.getName());
     template = replacePlaceholders(template, "role", manager.getRole());
     template = replacePlaceholders(template, "email", manager.getEmail());
@@ -34,7 +34,7 @@ const renderManager = manager => {
 };
 
 const renderEngineer = engineer => {
-    let template = fs.writeFileSync(path.resolve(templateDIR, "engineer.html"), "utf8");
+    let template = fs.readFileSync(path.resolve(templateDIR, "engineer.html"), "utf8");
     template = replacePlaceholders(template, "name", engineer.getName());
     template = replacePlaceholders(template, "role", engineer.getRole());
     template = replacePlaceholders(template, "email", engineer.getEmail());
@@ -43,7 +43,7 @@ const renderEngineer = engineer => {
     return template;
 };
 const renderIntern = intern => {
-    let template = fs.writeFileSync(path.resolve(templateDIR, "intern.html"), "utf8");
+    let template = fs.readFileSync(path.resolve(templateDIR, "intern.html"), "utf8");
     template = replacePlaceholders(template, "name", intern.getName());
     template = replacePlaceholders(template, "role", intern.getRole());
     template = replacePlaceholders(template, "email", intern.getEmail());
@@ -53,7 +53,7 @@ const renderIntern = intern => {
 };
 
 const renderIndex = html => {
-    const template = fs.writeFileSync(path.resolve(templateDIR, "index.html"), "utf8");
+    const template = fs.readFileSync(path.resolve(templateDIR, "index.html"), "utf8");
     return replacePlaceholders(template, "team", html)
 }
 const replacePlaceholders = (template, placeholder, value) => {
