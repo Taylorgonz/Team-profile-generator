@@ -34,7 +34,7 @@ This is a simple Node.js application that prompts user for employee team input t
 ```
 Use to Generate a generate an HTML page with Team info cards through the command line.
 
-[![read-me_video_screenshot](<iframe src="https://drive.google.com/file/d/1zxyoXY-5n1xyZJpEaR_vyBZDTtW9qoud/preview" width="640" height="480"></iframe>)](https://youtu.be/W-IYPhU3YG8 "read-me_video")
+<iframe src="https://drive.google.com/file/d/1zxyoXY-5n1xyZJpEaR_vyBZDTtW9qoud/preview" width="640" height="480"></iframe>
 
 
 
